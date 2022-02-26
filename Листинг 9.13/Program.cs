@@ -1,4 +1,4 @@
-﻿using static System.Console;
+using static System.Console;
 //creating a new class
 class myClass
 {
@@ -58,6 +58,7 @@ class myClass
         {
             for (int k = 0; k < ckey.Length; k++)
             {
+                //add to the string the values of the field
                 txt += ckey[k] + " : " + skey[k] + " : " + vals[k] + "\n";
             }
         }//else return an empty field
@@ -80,29 +81,41 @@ class myClass
                 //checks each of the elements
                 for (int k = 0; k < ckey.Length; k++)
                 {
+                    //if the arguments coincide
                     if (a == ckey[k] && b == skey[k])
                     {
+                        //return the value of the index of the coincidence
                         return vals[k];
                     }
                 }
             }
+            //creating a inr type variable
             int res = 0;
+            //using the method add
             add(a, b, res);
+            //returns the variable;
             return res;
         }
+        //defining a set accessor
         set
         {
+            //if the field isn't nothing
             if (vals != null)
             {
+                //checks each of the elements
                 for (int k = 0; k < ckey.Length; k++)
                 {
+                    //if there is a coincidence between them and the arguments
                     if (a == ckey[k] && b == skey[k])
                     {
+                        //the value of the index of the field is equal to the value of the assignment
                         vals[k] = value;
+                        //end the cycle
                         return;
                     }
                 }
             }
+            //using the method add
             add(a, b, value);
         }
     }
@@ -111,33 +124,38 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Създаване на обект:
+        //creating a new class object
         myClass obj = new myClass();
-        // Проверка на съдържанието на обекта:
+        //displaying the object
         Console.WriteLine(obj);
-        // Проверка на стойността на елемент:
+
+        //displaying the value of the element
         Console.WriteLine("Стойност на елемента: " + obj['A', "Първи"] + "\n");
-        // Проверка на съдържанието на обекта:
+        //displaying the object
         Console.WriteLine(obj);
-        // Присвояване на стойност на елемент:
+
+        //assigning values to the object
         obj['B', "Втори"] = 200;
-        // Присвояване на стойност на елемент:
         obj['C', "Трети"] = 300;
-        // Проверка на съдържанието на обекта:
+
+        //displaying the object
         Console.WriteLine(obj);
-        // Проверка на стойността на елемент:
+
+        //displaying the value of the element
         Console.WriteLine("Стойност на елемента: " + obj['B', "Първи"] + "\n");
-        // Проверка на стойността на елемент:
+        //displaying the value of the element
         Console.WriteLine("Стойност на елемента: " + obj['B', "Втори"] + "\n");
-        // Проверка на стойността на елемент:
+        //displaying the value of the element
         Console.WriteLine("Стойност на елемента: " + obj['A', "Трети"] + "\n");
-        // Проверка на съдържанието на обекта:
+        //displaying the value of the element
+
+        //displaying the object
         Console.WriteLine(obj);
-        // Присвояване на стойност на елемент:
+        //assigning a value to the object
         obj['A', "Първи"] = 100;
-        // Проверка на съдържанието на обекта:
+        //displaying the object
         Console.WriteLine(obj);
-        // Проверка на стойността на елемент:
+        //displaying the value of the element
         Console.WriteLine("Стойност на елемента: " + obj['A', "Първи"] + "\n");
 
         WriteLine("Press any key to close...");
